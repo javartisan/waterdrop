@@ -8,17 +8,20 @@ Waterdrop 是一个`非常易用`，`高性能`、支持`实时流式`和`离线
 
 ### 如果您没时间看下面内容，请直接进入正题:  
 
-请点击进入快速入门：https://interestinglab.github.io/waterdrop/#/zh-cn/quick-start
+请点击进入快速入门：https://interestinglab.github.io/waterdrop/#/zh-cn/v1/quick-start
 
 Waterdrop 提供可直接执行的软件包，没有必要自行编译源代码，下载地址：https://github.com/InterestingLab/waterdrop/releases
 
 文档地址：https://interestinglab.github.io/waterdrop/
 
-各种线上应用案例，请见: https://interestinglab.github.io/waterdrop/#/zh-cn/case_study/base
+各种线上应用案例，请见: https://interestinglab.github.io/waterdrop/#/zh-cn/v1/case_study/
 
 **如果你遇到任何问题，请联系项目负责人 Gary(微信: `garyelephant`) , RickyHuo(微信: `chodomatte1994`)，加微信备注"waterdrop"，我们把你拉到`Waterdrop & Spark & Flink 交流群`里，并为你提供全程免费服务，你也可以与其他伙伴交流大数据技术。扫码加我，拉你入群：**
 
 ![garyelephant wechat qrcode](../images/wechat-qrcode/garyelephant.jpeg ':size=250%')
+
+
+想了解Waterdrop的设计与实现原理，请查看视频：[https://time.geekbang.org/dailylesson/detail/100028486](https://time.geekbang.org/dailylesson/detail/100028486)
 
 ---
 
@@ -56,25 +59,25 @@ Databricks 开源的 Apache Spark 对于分布式数据处理来说是一个伟�
 ## Waterdrop 的工作流程
 
 ```
-Input[数据源输入] -> Filter[数据处理] -> Output[结果输出]
+Input/Source[数据源输入] -> Filter/Transform[数据处理] -> Output/Sink[结果输出]
 ```
 
 ![wd-workflow](../images/wd-workflow.png ':size=300%')
 
 
-多个Filter构建了数据处理的Pipeline，满足各种各样的数据处理需求，如果您熟悉SQL，也可以直接通过SQL构建数据处理的Pipeline，简单高效。目前Waterdrop支持的[Filter列表](zh-cn/configuration/filter-plugin), 仍然在不断扩充中。您也可以开发自己的数据处理插件，整个系统是易于扩展的。
+多个Filter构建了数据处理的Pipeline，满足各种各样的数据处理需求，如果您熟悉SQL，也可以直接通过SQL构建数据处理的Pipeline，简单高效。目前Waterdrop支持的[Filter列表](https://interestinglab.github.io/waterdrop/#/zh-cn/v1/configuration/filter-plugin), 仍然在不断扩充中。您也可以开发自己的数据处理插件，整个系统是易于扩展的。
 
 ## Waterdrop 支持的插件
 
-* Input plugin
+* Input/Source plugin
 
 Fake, File, Hdfs, Kafka, S3, Socket, 自行开发的Input plugin
 
-* Filter plugin
+* Filter/Transform plugin
 
 Add, Checksum, Convert, Date, Drop, Grok, Json, Kv, Lowercase, Remove, Rename, Repartition, Replace, Sample, Split, Sql, Table, Truncate, Uppercase, Uuid, 自行开发的Filter plugin
 
-* Output plugin
+* Output/Sink plugin
 
 Elasticsearch, File, Hdfs, Jdbc, Kafka, Mysql, S3, Stdout, 自行开发的Output plugin
 
@@ -89,14 +92,6 @@ Elasticsearch, File, Hdfs, Jdbc, Kafka, Mysql, S3, Stdout, 自行开发的Output
 * Spark on Mesos
 
 如果您的数据量较小或者只是做功能验证，也可以仅使用`local`模式启动，无需集群环境，Waterdrop支持单机运行。
-
-## [配置/文档](zh-cn/configuration/base)
-
-## [部署和测试](zh-cn/deployment)
-
-## [开发者指引](zh-cn/developing-plugin)
-
-## [Roadmap](zh-cn/roadmap)
 
 ## 社区分享
 
@@ -123,6 +118,18 @@ Elasticsearch, File, Hdfs, Jdbc, Kafka, Mysql, S3, Stdout, 自行开发的Output
 ![字节跳动 Logo](../images/bytedance-logo.jpeg ':size=40%')
 
 字节跳动使用Waterdrop实现了多源数据的关联分析(如Hive和ES的数据源关联查询分析)，大大简化了不同数据源之间的分析对比工作，并且节省了大量的Spark程序的学习和开发时间。
+
+* [搜狗](http://agent.e.sogou.com/)，搜狗奇点系统
+
+![搜狗 Logo](../images/sougou-logo.png ':size=40%')
+
+搜狗奇点系统使用 waterdrop 作为 etl 工具, 帮助建立实时数仓体系
+
+* [趣头条](https://www.qutoutiao.net/)，趣头条数据中心
+
+![趣头条 Logo](../images/qutoutiao-logo.jpg ':size=40%')
+
+ 趣头条数据中心，使用waterdrop支撑mysql to hive的离线etl任务、实时hive to clickhouse的backfill技术支撑，很好的cover离线、实时大部分任务场景。
 
 * [一下科技](https://www.yixia.com/), 一直播数据平台
 

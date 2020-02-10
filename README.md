@@ -9,17 +9,19 @@ Waterdrop 是一个`非常易用`，`高性能`、支持`实时流式`和`离线
 
 ### 如果您没时间看下面内容，请直接进入正题:  
 
-请点击进入快速入门：https://interestinglab.github.io/waterdrop/#/zh-cn/quick-start
+请点击进入快速入门：https://interestinglab.github.io/waterdrop/#/zh-cn/v1/quick-start
 
 Waterdrop 提供可直接执行的软件包，没有必要自行编译源代码，下载地址：https://github.com/InterestingLab/waterdrop/releases
 
 文档地址：https://interestinglab.github.io/waterdrop/
 
-各种线上应用案例，请见: https://interestinglab.github.io/waterdrop/#/zh-cn/case_study/base
+各种线上应用案例，请见: https://interestinglab.github.io/waterdrop/#/zh-cn/v1/case_study/
 
 **如果你遇到任何问题，请联系项目负责人 Gary(微信: `garyelephant`) , RickyHuo(微信: `chodomatte1994`)，加微信备注"waterdrop"，我们把你拉到`Waterdrop & Spark & Flink 交流群`里，并为你提供全程免费服务，你也可以与其他伙伴交流大数据技术。扫码加我，拉你入群：**
 
-<img src="./docs/images/wechat-qrcode/garyelephant.jpeg" height="240" width="240">
+<img src="./docs/zh-cn/images/wechat-qrcode/garyelephant.jpeg" height="240" width="240">
+
+想了解Waterdrop的设计与实现原理，请查看视频：[https://time.geekbang.org/dailylesson/detail/100028486](https://time.geekbang.org/dailylesson/detail/100028486)
 
 
 ---
@@ -61,7 +63,7 @@ Databricks 开源的 Apache Spark 对于分布式数据处理来说是一个伟�
 
 
 <p align="center">
-    <img src="./docs/images/wd-workflow.png" height="460" width="280" >
+    <img src="./docs/zh-cn/images/wd-workflow.png" height="460" width="280" >
 </p>
 
 
@@ -69,7 +71,7 @@ Databricks 开源的 Apache Spark 对于分布式数据处理来说是一个伟�
                          Input[数据源输入] -> Filter[数据处理] -> Output[结果输出]
 ```
 
-多个Filter构建了数据处理的Pipeline，满足各种各样的数据处理需求，如果您熟悉SQL，也可以直接通过SQL构建数据处理的Pipeline，简单高效。目前Waterdrop支持的[Filter列表](zh-cn/configuration/filter-plugin), 仍然在不断扩充中。您也可以开发自己的数据处理插件，整个系统是易于扩展的。
+多个Filter构建了数据处理的Pipeline，满足各种各样的数据处理需求，如果您熟悉SQL，也可以直接通过SQL构建数据处理的Pipeline，简单高效。目前Waterdrop支持的[Filter列表](https://interestinglab.github.io/waterdrop/#/zh-cn/v1/configuration/filter-plugin), 仍然在不断扩充中。您也可以开发自己的数据处理插件，整个系统是易于扩展的。
 
 ## Waterdrop 支持的插件
 
@@ -117,15 +119,27 @@ Elasticsearch, File, Hdfs, Jdbc, Kafka, Mysql, S3, Stdout, 自行开发的Output
 
 * [新浪](http://www.sina.com.cn/), 大数据运维分析平台
 
-<img src="./docs/images/sina-logo.png" height="60" width="120" >
+<img src="./docs/zh-cn/images/sina-logo.png" height="60" width="120" >
 
 新浪运维数据分析平台使用waterdrop为新浪新闻，CDN等服务做运维大数据的实时和离线分析，并写入Clickhouse。
 
 * [字节跳动](https://bytedance.com/zh)，广告数据平台
 
-<img src="./docs/images/bytedance-logo.jpeg" height="90" width="150" >
+<img src="./docs/zh-cn/images/bytedance-logo.jpeg" height="90" width="150" >
 
 字节跳动使用Waterdrop实现了多源数据的关联分析(如Hive和ES的数据源关联查询分析)，大大简化了不同数据源之间的分析对比工作，并且节省了大量的Spark程序的学习和开发时间。
+
+* [搜狗](http://agent.e.sogou.com/)，搜狗奇点系统
+
+<img src="./docs/zh-cn/images/sougou-logo.png" height="70" width="200" >
+
+搜狗奇点系统使用 waterdrop 作为 etl 工具, 帮助建立实时数仓体系
+
+* [趣头条](https://www.qutoutiao.net/)，趣头条数据中心
+
+<img src="./docs/zh-cn/images/qutoutiao-logo.jpg" height="90" width="90" >
+
+趣头条数据中心，使用waterdrop支撑mysql to hive的离线etl任务、实时hive to clickhouse的backfill技术支撑，很好的cover离线、实时大部分任务场景。
 
 * [一下科技](https://www.yixia.com/), 一直播数据平台
 
@@ -133,25 +147,25 @@ Elasticsearch, File, Hdfs, Jdbc, Kafka, Mysql, S3, Stdout, 自行开发的Output
 
 * 永辉超市子公司-永辉云创，会员电商数据分析平台
 
-<img src="./docs/images/yonghuiyunchuang-logo.png" height="60" width="120" >
+<img src="./docs/zh-cn/images/yonghuiyunchuang-logo.png" height="60" width="120" >
 
 Waterdrop 为永辉云创旗下新零售品牌永辉生活提供电商用户行为数据实时流式与离线SQL计算。
 
 * 水滴筹, 数据平台
 
-<img src="./docs/images/shuidichou-logo.jpg" height="60" width="120" >
+<img src="./docs/zh-cn/images/shuidichou-logo.jpg" height="60" width="120" >
 
 水滴筹在Yarn上使用Waterdrop做实时流式以及定时的离线批处理，每天处理3～4T的数据量，最终将数据写入Clickhouse。
 
 * 浙江乐控信息科技有限公司
 
-<img src="./docs/images/zhejiang_lekong_xinxi_keji-logo.jpg" height="60" width="120" >
+<img src="./docs/zh-cn/images/zhejiang_lekong_xinxi_keji-logo.jpg" height="60" width="120" >
 
 Watedrop 为浙江乐控信息科技有限公司旗下乐控智能提供物联网交互数据实时流sql分析(Structured Streaming 引擎)和离线数据分析。每天处理的数据量8千万到一亿条数据 最终数据落地到kafka和mysql数据库。
 
 * [上海分蛋信息科技](https://91fd.com)，大数据数据分析平台
 
-<img src="./docs/images/fendan-keji-logo.jpeg" height="60" width="120" >
+<img src="./docs/zh-cn/images/fendan-keji-logo.jpeg" height="60" width="120" >
 
 分蛋科技使用Waterdrop做数据仓库实时同步，近百个Pipeline同步处理；数据流实时统计，数据平台指标离线计算。
 
